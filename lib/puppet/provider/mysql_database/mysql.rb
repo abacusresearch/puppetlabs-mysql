@@ -27,7 +27,7 @@ Puppet::Type.type(:mysql_database).provide(:mysql, parent: Puppet::Provider::Mys
 
         next
       end
-      new(name:,
+      new(name: name,
           ensure: :present,
           charset: attributes['character_set_database'],
           collate: attributes['collation_database'])

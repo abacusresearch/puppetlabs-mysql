@@ -12,7 +12,7 @@ Puppet::Type.type(:mysql_plugin).provide(:mysql, parent: Puppet::Provider::Mysql
   def self.instances
     mysql_caller('show plugins', 'regular').split("\n").map do |line|
       name, _status, _type, library, _license = line.split(%r{\t})
-      new(name:,
+      new(name: name,
           ensure: :present,
           soname: library)
     end
